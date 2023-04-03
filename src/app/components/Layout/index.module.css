@@ -40,6 +40,11 @@
   padding: 10px;
 }
 
+.header .button {
+  margin-left: auto;
+  display: flex;
+}
+
 .img {
   border-radius: 50%;
   cursor: pointer;
@@ -48,5 +53,4 @@
 .main {
   min-height: calc(100vh - 100px);
   box-sizing: border-box;
-  border: 1px solid red;
 }

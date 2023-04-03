@@ -1,19 +1,14 @@
-import styles from './index.module.css';
 import Head from "next/head";
-
+import LoginForm from "@/app/components/LoginForm";
 
 const Login = () => {
-
   return (
-    
-     <>
-     <Head>
-       <title>Login</title>
-     </Head>
-     <div >
-      Login 111
-    </div>
-   </>
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <LoginForm />
+    </>
   )
 }
 
