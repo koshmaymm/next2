@@ -1,6 +1,5 @@
-import styles from './index.module.css';
 import Head from "next/head";
-
+import ArticleLong from "@/app/components/ArticleLong";
 
 const Home = () => {
 
@@ -9,9 +8,7 @@ const Home = () => {
       <Head>
         <title>Home</title>
       </Head>
-      <main className={styles.main}>
-        Home
-      </main>
+      <ArticleLong />
     </>
   )
 }

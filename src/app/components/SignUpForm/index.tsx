@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { Heading, Input, Button, Text } from '@chakra-ui/react';
-import { setToken, setId } from "@/utils/localStorage";
 import styles from './index.module.css';
 import {
     FormControl,
@@ -9,21 +7,18 @@ import {
     FormHelperText,
 } from '@chakra-ui/react';
 
-const LoginForm = () => {
+const SignUpForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isError, setIsError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const router = useRouter();
-
-
-    const handleLogin = async () => {
+    const handleSignUp = async () => {
         setIsError("");
         setIsLoading(true);
 
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('/api/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -33,22 +28,20 @@ const LoginForm = () => {
             const jsonData = await response.json();
             if (jsonData.status === 200) {
                 setIsLoading(false);
-                setToken(jsonData.token);
-                setId(jsonData.user.id);
-                router.push('/');
+                setIsError(jsonData.message);
             } else {
                 setIsError(jsonData.message);
                 setIsLoading(false);
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.log('Error:', error);
             setIsError("Something went wrong");
             setIsLoading(false);
         }
     };
 
     return <form className={styles.form}>
-        <Heading className={styles.heading} as='h1' size='xl'>Login</Heading>
+        <Heading className={styles.heading} as='h1' size='xl'>Sign Up</Heading>
         <FormControl>
             <FormLabel>Email address</FormLabel>
             <Input type='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} disabled={isLoading} />
@@ -57,6 +50,7 @@ const LoginForm = () => {
         <FormControl>
             <FormLabel>Password</FormLabel>
             <Input type='password' placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} disabled={isLoading} />
+            <FormHelperText>Password has no special requirements</FormHelperText>
             <Text className={styles.error}>{isError}</Text>
         </FormControl>
         <Button
@@ -64,12 +58,12 @@ const LoginForm = () => {
             colorScheme='telegram'
             isLoading={isLoading}
             loadingText='Submitting'
-            onClick={handleLogin}
+            onClick={handleSignUp}
             disabled={isLoading}
         >
-            Login
+            Sign Up
         </Button>
     </form>
 }
 
-export default LoginForm;
+export default SignUpForm;

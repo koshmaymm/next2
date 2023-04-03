@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from './index.module.css';
+import SignUpForm from "@/app/components/SignUpForm";
 
 const SignUp = () => {
   return (
@@ -7,9 +7,7 @@ const SignUp = () => {
       <Head>
         <title>SignUp</title>
       </Head>
-      <div >
-        SignUp
-      </div>
+      <SignUpForm />
     </>
   )
 }

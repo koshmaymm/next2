@@ -40,9 +40,9 @@
   padding: 10px;
 }
 
-.header .button {
+.header .avatar {
   margin-left: auto;
-  display: flex;
+  margin-right: 20px;
 }
 
 .img {

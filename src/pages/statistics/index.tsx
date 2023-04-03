@@ -1,5 +1,5 @@
-import styles from './index.module.css';
 import Head from "next/head";
+import StatisticTable from '@/app/components/StatisticTable';
 
 
 const Statistics = () => {
@@ -10,9 +10,7 @@ const Statistics = () => {
       <Head>
         <title>Statistics</title>
       </Head>
-      <div >
-      Statistics
-      </div>
+      <StatisticTable />
     </>
   )
 }
