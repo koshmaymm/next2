@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1000px !important;
+}
+
+.image {
+  margin-bottom: 12px;
+}
